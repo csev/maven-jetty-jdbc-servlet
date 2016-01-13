@@ -28,7 +28,6 @@ public class HelloServlet extends HttpServlet {
 
     Properties prop = new Properties();
     InputStream in = getClass().getResourceAsStream("/application.properties");
-System.out.println("in="+in);
     if ( in == null ) {
         out.println("Missing application.properties in the war.");
     } else {
@@ -68,7 +67,8 @@ System.out.println("in="+in);
         .getConnection(jdbc, username, password);
  
     } catch (SQLException e) {
-        out.println("Your database is missing or inaccessible");
+        out.println("Your database server may be down.  Or if it is up");
+        out.println("your database is missing or inaccessible.");
         out.println("");
         out.println("CREATE DATABASE mjjs DEFAULT CHARACTER SET utf8;");
         out.println("GRANT ALL ON mjjs.* TO 'mjjsuser'@'localhost' IDENTIFIED BY 'mjjspassword';");

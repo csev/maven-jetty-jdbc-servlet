@@ -1,6 +1,26 @@
 
 A simple servlet that uses Maven, JDBC, and Jetty to say 'Hello world'
 
+Setup The Database
+------------------
+
+First, make a database, user, table and add a record:
+
+    CREATE DATABASE mjjs DEFAULT CHARACTER SET utf8;
+    GRANT ALL ON mjjs.* TO 'mjjsuser'@'localhost' IDENTIFIED BY 'mjjspassword';
+    GRANT ALL ON mjjs.* TO 'mjjsuser'@'127.0.0.1' IDENTIFIED BY 'mjjspassword';
+    CREATE TABLE mjjs (name TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+    INSERT INTO mjjs (name) VALUES ('tsugi');
+
+If you have changed any of the values in the example SQL above, edit
+the file `src/main/resources/application.properties` and edit these
+properties:
+
+    mjjs.datasource.url=jdbc:mysql://localhost:8889/mjjs
+    mjjs.datasource.username=mjjsuser
+    mjjs.datasource.password=mjjspassword
+    mjjs.datasource.driverClassName=com.mysql.jdbc.Driver
+
 Build / Run
 -----------
 
@@ -30,9 +50,14 @@ Copy paste this command into the text box and hit go
     INSERT INTO mjjs (name) VALUES ('tsugi');
 
 Refresh this page: http://localhost:8080/mjjs/hello
-If success, this is what will show up:
 
+If all goes well, you will see output like the following:
+
+    Welcome to hello world!
+    Reading /application.properties ...
+    name=tsugi
     Successfully read 1 rows from the database
+
     
 Background Documentation to Read
 --------------------------------
@@ -56,13 +81,4 @@ If you end up with this error,
     plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available
     from the repositories
 
-add this to your
-
-    ~/.m2/settings.xml
-
-    <settings>
-        <pluginGroups>
-            <pluginGroup>org.mortbay.jetty</pluginGroup>
-        </pluginGroups>
-    </settings>
 
