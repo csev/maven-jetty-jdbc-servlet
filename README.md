@@ -16,14 +16,14 @@ If you get this message:
     Your database is missing or inaccessible
 
 Fire up MAMP, go to localhost:8888/phpMyAdmin, click on SQL tab and
-copy paste this line of code into the text box and hit "Go"
+copy paste these lines of SQL into the text box and hit "Go"
 
     CREATE DATABASE mjjs DEFAULT CHARACTER SET utf8;
     GRANT ALL ON mjjs.* TO 'mjjsuser'@'localhost' IDENTIFIED BY 'mjjspassword';
     GRANT ALL ON mjjs.* TO 'mjjsuser'@'127.0.0.1' IDENTIFIED BY 'mjjspassword';
 
-Refresh the page, and mjjs now appears on the left.
-Click on mjjs and then click on the SQL tab. 
+Refresh the phpMyAdmin page, and mjjs now appears on the left.
+Click on the mjjs database and then click on the SQL tab. 
 Copy paste this command into the text box and hit go
 
     CREATE TABLE mjjs (name TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
