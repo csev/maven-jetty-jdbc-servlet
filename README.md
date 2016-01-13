@@ -62,17 +62,17 @@ If all goes well, you will see output like the following:
 Looking at the Source Code
 --------------------------
 
-* The `pom.xml` file controls the build process - it tells `mvn` where the source files 
+* The [`pom.xml`](https://github.com/csev/maven-jetty-jdbc-servlet/blob/master/pom.xml) file controls the build process - it tells `mvn` where the source files 
 are located and what output files to produce.  It also tells `mvn` to download library code
 for the declared code libraries that this application "depends on".
 
-* The `src/main/java/mjjs/HelloServlet.java` contains the source code for our Java Servlet.
+* The [`src/main/java/mjjs/HelloServlet.java`](https://github.com/csev/maven-jetty-jdbc-servlet/blob/master/src/main/java/mjjs/HelloServlet.java) contains the source code for our Java Servlet.
 If you look at the code, you will see methods for doGet() and doPost() - these methods are
 called when there is a GET or POST to the application's URLs.  It defines a class called
 `mjjs.HelloServlet` that is referenced in the next file.   You can debug this program by 
 adding calls to `System.out.println()` and those print statements will come out on your console.
 
-* The `src/main/webapp/WEB-INF/web.xml` file tells the servlet container (Jetty in this case)
+* The [`src/main/webapp/WEB-INF/web.xml`](https://github.com/csev/maven-jetty-jdbc-servlet/blob/master/src/main/webapp/WEB-INF/web.xml) file tells the servlet container ([Jetty](http://www.eclipse.org/jetty/) in this case)
 which URLs are to be handed to which classes.  If you lok at this file, it has two 
 sections - one defines a servlet and maps it to the java class and the other takes a URL
 pattern and indicates that it needs to be sent to a particular servlet (i.e. which Java class).
@@ -84,10 +84,10 @@ Background Documentation to Read
 These are some online resources to read that explain how things in this servlet works:
 
 * [How to Write a Hello World Servlet](http://stackoverflow.com/questions/18821227/how-to-write-hello-world-servlet-example)
-* [Lesson: JDBC Basics](https://docs.oracle.com/javase/tutorial/jdbc/basics/)
 * HttpServlet interface - [javax.servlet.http.HttpServlet](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServlet.html)
 * Request Object interface - [javax.servlet.http.HttpServletRequest](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html)
 * Response Object Interface - [javax.servlet.http.HttpServletResponse](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html)
+* [Lesson: JDBC Basics](https://docs.oracle.com/javase/tutorial/jdbc/basics/)
 * Database Connection interfaces - [java.sql](http://docs.oracle.com/javase/7/docs/api/java/sql/package-summary.html)
 
 
