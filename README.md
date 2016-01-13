@@ -58,6 +58,25 @@ If all goes well, you will see output like the following:
     name=tsugi
     Successfully read 1 rows from the database
 
+
+Looking at the Source Code
+--------------------------
+
+* The `pom.xml` file controls the build process - it tells `mvn` where the source files 
+are located and what output files to produce.  It also tells `mvn` to download library code
+for the declared code libraries that this application "depends on".
+
+* The `src/main/java/mjjs/HelloServlet.java` contains the source code for our Java Servlet.
+If you look at the code, you will see methods for doGet() and doPost() - these methods are
+called when there is a GET or POST to the application's URLs.  It defines a class called
+`mjjs.HelloServlet` that is referenced in the next file.   You can debug this program by 
+adding calls to `System.out.println()` and those print statements will come out on your console.
+
+* The `src/main/webapp/WEB-INF/web.xml` file tells the servlet container (Jetty in this case)
+which URLs are to be handed to which classes.  If you lok at this file, it has two 
+sections - one defines a servlet and maps it to the java class and the other takes a URL
+pattern and indicates that it needs to be sent to a particular servlet (i.e. which Java class).
+
     
 Background Documentation to Read
 --------------------------------
